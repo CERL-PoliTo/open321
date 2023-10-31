@@ -1,0 +1,8 @@
+#ifndef QH_TEST_CONFIG_HPP
+#define QH_TEST_CONFIG_HPP
+
+#include <gtest/gtest.h>
+
+#define OPEN321_TEST_DATA_ROOT "@OPEN321_TEST_DATA_ROOT@"
+
+#endif

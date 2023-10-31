@@ -1,0 +1,20 @@
+set(EIGEN_ROOT ${OPEN321_DOWNLOADS_ROOT}/eigen)
+ExternalProject_Add(
+        Eigen3
+        SOURCE_DIR "${EIGEN_ROOT}"
+        BINARY_DIR "${CMAKE_BINARY_DIR}/thirdparty/eigen"
+        GIT_REPOSITORY https://gitlab.com/libeigen/eigen.git
+        GIT_TAG master
+        GIT_SHALLOW TRUE
+        UPDATE_COMMAND ""
+        CMAKE_ARGS
+        -DCMAKE_BUILD_TYPE:STRING=${CMAKE_BUILD_TYPE}
+        -DBUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}
+        -DCMAKE_INSTALL_PREFIX:PATH=${OPEN321_DEPENDENCIES_INSTALL_DIR}/eigen
+        INSTALL_DIR ${OPEN321_DEPENDENCIES_INSTALL_DIR}/eigen
+)
+set(EIGEN_INCLUDE_DIRS "${OPEN321_DEPENDENCIES_INSTALL_DIR}/eigen/include/eigen3")
+set(EIGEN_LIBRARY_DIRS "${OPEN321_DEPENDENCIES_INSTALL_DIR}/eigen/lib"
+                       "${OPEN321_DEPENDENCIES_INSTALL_DIR}/eigen/lib64")
+set(EIGEN_CXX_LIBRARIES "")
+include_directories(${EIGEN_INCLUDE_DIRS})
